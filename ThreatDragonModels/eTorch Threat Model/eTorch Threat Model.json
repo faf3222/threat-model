@@ -1,0 +1,26 @@
+{
+  "version": "2.5.0",
+  "summary": {
+    "title": "eTorch Threat Model",
+    "owner": "Yafet Abate",
+    "description": "The eTorch system is an intelligent IoT lighting solution consisting of WiFi-enabled eTorch devices, optional field gateways, mobile and Windows control applications, an embedded web management interface, and a cloud portal hosted by eHomeSystems. Users and administrators can control lighting, schedules, firmware updates, and device groups locally and remotely using HTTP/HTTPS. The system also supports optional voice control via third-party voice assistants and operates with limited functionality when offline using locally cached schedules.\n",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "New STRIDE diagram",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.5.0",
+        "cells": []
+      }
+    ],
+    "diagramTop": 2,
+    "reviewer": "Computer Security Instructor",
+    "threatTop": 0
+  }
+}
