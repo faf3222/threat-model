@@ -118,13 +118,6 @@
                 "7ef749f6-25d3-4d4a-afbb-5a20966999a3",
                 "71bb032d-2a88-4438-b10c-9aded8954ae0"
               ]
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -241,7 +234,38 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "d3c79d8c-1424-4013-8507-a1075978a559",
+                  "title": "Spoofing – Ordinary User Identity Impersonation",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An attacker may impersonate a legitimate ordinary user by stealing credentials or session tokens, allowing unauthorized access to system functions.\n",
+                  "mitigation": "Strong authentication mechanisms, multi-factor authentication (MFA), secure password policies, and session validation.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": ""
+                },
+                {
+                  "id": "c9ef1a61-8396-4e28-a0a5-0f95ae0484ae",
+                  "title": "Repudiation – User Actions Not Properly Logged",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "An ordinary user may deny performing certain actions such as configuration changes or control commands if sufficient logging and audit trails are not in place.\n\n",
+                  "mitigation": "Implement comprehensive audit logging, secure log storage, timestamps, and user action tracking with integrity protection.\n\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 3,
+                "repudiation": 2
+              }
             }
           },
           {
@@ -358,7 +382,38 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "cf15cbd3-e31a-4126-9d1d-46938502dc50",
+                  "title": "Administrator identity spoofing",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An attacker may impersonate an administrator by stealing credentials or exploiting weak authentication mechanisms, gaining unauthorized access to administrative functions and system configuration.\n",
+                  "mitigation": "Implement strong authentication mechanisms such as multi-factor authentication (MFA), enforce strong password policies, limit administrative access, and monitor login attempts with logging and alerts.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": ""
+                },
+                {
+                  "id": "7e59ac7e-efdd-4a9e-a14f-b5731dc82f44",
+                  "title": "Administrator action repudiation",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "An administrator could deny performing sensitive actions such as configuration changes or user management if proper logging and audit mechanisms are not in place.\n",
+                  "mitigation": "Enable detailed audit logging, ensure logs are tamper-resistant, associate all administrative actions with authenticated identities, and retain logs for forensic analysis.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "repudiation": 2
+              }
             }
           },
           {
@@ -832,7 +887,107 @@
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "1803e50e-3ed1-4612-bb41-1219c38fc9c2",
+                  "title": "Spoofing – Windows Control Application",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An attacker could impersonate a legitimate Windows Control Application\nor a valid user session, allowing unauthorized access to system\nfunctions and backend APIs.\n",
+                  "mitigation": "Use strong authentication mechanisms such as certificate-based\nauthentication, secure session tokens, device binding,\nand multi-factor authentication.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": ""
+                },
+                {
+                  "id": "9a0124cb-3402-4980-a4c9-be9d8d939994",
+                  "title": "Tampering – Windows Control Application",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker could modify or manipulate commands sent from the\nWindows Control Application to the backend API, potentially altering\ndevice behavior or system configuration.\n",
+                  "mitigation": "Implement message integrity checks, request signing,\ninput validation, and secure communication channels (HTTPS/TLS)\nto prevent command manipulation.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": ""
+                },
+                {
+                  "id": "10100e82-7408-4bdb-9886-7f6a09e60344",
+                  "title": "Repudiation – Windows Control Application actions",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "A user or attacker may deny having performed certain actions\nor sent commands through the Windows Control Application\ndue to insufficient logging and audit trails.\n",
+                  "mitigation": "Enable detailed audit logging, timestamped event records,\nuser identification, and secure log storage to ensure\naccountability and non-repudiation.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": ""
+                },
+                {
+                  "id": "171cbf5e-fa60-4ce8-a7f7-27b288405e22",
+                  "title": "Information Disclosure – Windows Control Application data exposure",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information such as user credentials, device identifiers,\nor control commands may be exposed through the Windows Control\nApplication due to insecure storage, logging, or transmission.\n",
+                  "mitigation": "Encrypt sensitive data at rest and in transit, enforce secure\nauthentication mechanisms, minimize local data storage,\nand restrict access to sensitive logs.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": ""
+                },
+                {
+                  "id": "a786034c-c531-4df8-8c15-b8e7bc6a56dc",
+                  "title": "Denial of Service – Windows Control Application request flooding",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "The Windows Control Application may be overwhelmed by excessive or\nmalicious requests, causing service degradation or preventing\nlegitimate users from controlling devices.\n",
+                  "mitigation": "Implement rate limiting, request throttling, input validation,\nand backend monitoring to detect and block abusive traffic.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": ""
+                },
+                {
+                  "id": "f209e2f9-15b2-4d29-b547-221e1e2fbf53",
+                  "title": "Elevation of Privilege – Mobile Control Application unauthorized access",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "An attacker may exploit weaknesses in the Mobile Control Application\nto gain higher privileges, allowing unauthorized control of devices\nor access to administrative functions.\n",
+                  "mitigation": "Enforce strict role-based access control, validate permissions on\nthe backend, apply secure authentication tokens, and perform\nregular security testing of the mobile application.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 29,
+                  "score": ""
+                },
+                {
+                  "id": "d8dcea71-b51c-4cb4-aa2e-e4eb78360a64",
+                  "title": "Repudiation – User actions not properly logged",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "A user may deny performing actions within the system if sufficient\nlogging and auditing mechanisms are not in place, making it difficult\nto trace changes or investigate incidents.\n",
+                  "mitigation": "Implement comprehensive audit logging, including timestamps,\nuser identifiers, and action details. Protect logs from tampering\nand ensure logs are regularly reviewed.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 30,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "tampering": 3,
+                "repudiation": 4,
+                "informationDisclosure": 2,
+                "denialOfService": 2,
+                "elevationOfPrivilege": 2
+              }
             }
           },
           {
@@ -1229,10 +1384,55 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "4559950a-2623-48c5-9bf9-c198b152ac2d",
+                  "title": "Tampering – API request manipulation",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker may tamper with API requests between the mobile control application and the cloud backend, modifying parameters or payloads to execute unauthorized actions or alter device states.\n",
+                  "mitigation": "Use HTTPS with TLS encryption, request signing, input validation, and server-side authorization checks to prevent modification of API requests.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                },
+                {
+                  "id": "ef983e1e-785c-44dd-8ce4-befef9903786",
+                  "title": "Information Disclosure – API data leakage",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information such as user data, device identifiers, or authentication tokens may be exposed through API responses between the mobile application and the cloud backend.\n",
+                  "mitigation": "Encrypt all API communications, minimize data returned in responses, apply proper access control, and avoid exposing sensitive information in logs or error messages.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                },
+                {
+                  "id": "ff3452a6-ed65-4e34-8a1d-eeefa141ba37",
+                  "title": "Denial of Service – API rate exhaustion",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "An attacker may overwhelm the API endpoints with excessive requests, exhausting server resources and preventing legitimate users from accessing the system.\n",
+                  "mitigation": "Implement rate limiting, request throttling, IP-based blocking, and Web Application Firewall (WAF) protections to detect and mitigate traffic floods.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "0d227957-3c52-4033-9d10-d484012fc944"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 3,
+                "informationDisclosure": 3,
+                "denialOfService": 3
+              }
             },
             "labels": [
               "API requests (HTTPS)\n"
@@ -1283,10 +1483,55 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "1c51d0bd-6eba-4c3c-83e8-ce273857c72b",
+                  "title": "Tampering – API request parameters manipulated",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker may modify API request parameters while data is transmitted between the client applications and the cloud backend, leading to unauthorized actions or corrupted data.\n",
+                  "mitigation": "Use HTTPS with TLS encryption, implement request validation, apply message integrity checks, and enforce strict server-side input validation.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                },
+                {
+                  "id": "25e8c713-c0d2-4329-b5bf-2a83d7328c95",
+                  "title": "Information Disclosure – Sensitive data exposed over API",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information such as user credentials, device identifiers, or configuration data may be exposed during API communication between client applications and the cloud backend.\n",
+                  "mitigation": "Enforce TLS encryption, avoid sending sensitive data in URLs, use secure authentication tokens, and apply data minimization principles.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                },
+                {
+                  "id": "87887f3d-f641-4dbe-bf85-ffe032d6a597",
+                  "title": "Denial of Service – API request flooding",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "An attacker could overwhelm the API endpoint with a large number of requests, causing service degradation or unavailability for legitimate users.\n\n",
+                  "mitigation": "Implement rate limiting, request throttling, API gateways, and monitoring to detect and block abnormal traffic patterns.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "b87d17fc-4887-49b2-97a3-bc235df8e811"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 4,
+                "informationDisclosure": 4,
+                "denialOfService": 4
+              }
             },
             "labels": [
               "API requests (HTTPS)\n"
@@ -1304,6 +1549,14 @@
               {
                 "x": 450,
                 "y": 470
+              },
+              {
+                "x": 420,
+                "y": 470
+              },
+              {
+                "x": 230,
+                "y": 390
               }
             ]
           },
@@ -1337,10 +1590,55 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "2ad20228-6417-46ef-881b-16d19cdc4cfd",
+                  "title": "Tampering with User & Device Data",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker may modify user or device data during read or write operations, leading to unauthorized changes in system state or configuration.",
+                  "mitigation": "Implement strong access controls, input validation, integrity checks, database auditing, and encryption to prevent unauthorized data modification.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": ""
+                },
+                {
+                  "id": "4b90da6c-51e9-4313-ab77-dda586260cb1",
+                  "title": "Information Disclosure – User & Device Data",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Sensitive user and device information may be exposed during read/write operations\nbetween the cloud backend and the database if access controls or encryption\nare improperly implemented.\n",
+                  "mitigation": "Encrypt sensitive data at rest and in transit, enforce strict access control,\napply least-privilege permissions, and log and monitor database access.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": ""
+                },
+                {
+                  "id": "248d2c85-955f-481f-9a26-c3be905e4b90",
+                  "title": "Denial of Service – Database Access Flooding",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "An attacker may flood the backend or database with excessive read/write requests,\ncausing resource exhaustion and preventing legitimate users from accessing\nthe system.\n",
+                  "mitigation": "Apply rate limiting, request throttling, backend load balancing,\ndatabase connection limits, and monitoring with alerts for abnormal traffic.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "b87d17fc-4887-49b2-97a3-bc235df8e811"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "informationDisclosure": 2,
+                "denialOfService": 2
+              }
             },
             "labels": [
               "Read/Write user & device data\n"
@@ -1385,8 +1683,53 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "87bbad33-c9da-4dc1-b167-7aa2360fb132",
+                  "title": "Tampering with admin configuration commands",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Admin configuration commands could be modified during transmission, allowing an attacker to change system settings or inject malicious configurations.",
+                  "mitigation": "Use HTTPS/TLS encryption, integrity checks, strict server-side validation of configuration commands, and secure authentication for admin operations.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
+                },
+                {
+                  "id": "da4aaf27-705f-4310-a0ea-9b66d8768793",
+                  "title": "Sensitive data exposure during data transfer",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Sensitive user or device information may be exposed during data transmission if communication is intercepted, logged improperly, or misconfigured, especially when crossing trust boundaries",
+                  "mitigation": "Enforce HTTPS/TLS encryption, apply proper access controls, avoid exposing sensitive data in responses or logs, and validate secure configuration of backend services.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
+                },
+                {
+                  "id": "fb3f0e4f-8ae3-4eea-bfd5-9e7457ee3b01",
+                  "title": "Denial of Service via excessive requests",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "An attacker may overwhelm the service by sending a large number of requests,\ncausing performance degradation or service unavailability for legitimate users.\n",
+                  "mitigation": "Implement rate limiting, request throttling, traffic monitoring, and\ndenial-of-service protection mechanisms such as firewalls or load balancers.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 2,
+                "informationDisclosure": 2,
+                "denialOfService": 2
+              }
             },
             "labels": [
               "Admin configuration commands\n"
@@ -1398,6 +1741,106 @@
             },
             "target": {
               "cell": "5b77c57f-32ec-4c22-ac2d-aabcfbca1411",
+              "port": "23fe1bd2-63ba-409e-a8d3-7f29a73fc791"
+            },
+            "vertices": [
+              {
+                "x": 540,
+                "y": 300
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Web management requests\n",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "3b888d60-973a-40b9-aa8f-d31aabc0695b",
+                  "title": "Tampering – Web management request parameters modified",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker could tamper with web management request parameters sent between\nthe Embedded Web Management UI and the cloud portal, potentially modifying\ndevice configuration or user data.\n",
+                  "mitigation": "Use HTTPS with TLS, server-side input validation, integrity checks,\nand authentication to ensure requests cannot be modified in transit.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
+                },
+                {
+                  "id": "fec07f16-29cb-40c4-88d8-c7d49554ee70",
+                  "title": "Information Disclosure – Web management data exposure",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information such as user credentials or device configuration\ndata could be exposed through web management requests if not properly\nprotected.\n",
+                  "mitigation": "Enforce HTTPS with TLS, avoid sensitive data in URLs, apply authentication\nand authorization, and sanitize responses.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
+                },
+                {
+                  "id": "b8ecc156-0614-4ea3-83e6-8c10a611bd6c",
+                  "title": "Denial of Service – Web management endpoint abuse",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "An attacker could flood the web management interface with excessive\nrequests, causing service degradation or unavailability for legitimate users.\n",
+                  "mitigation": "Implement rate limiting, request throttling, CAPTCHA for admin actions,\nand monitoring with alerting for abnormal traffic patterns.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "0d227957-3c52-4033-9d10-d484012fc944",
+                "b87d17fc-4887-49b2-97a3-bc235df8e811"
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "informationDisclosure": 2,
+                "denialOfService": 2
+              }
+            },
+            "labels": [
+              "Web management requests\n"
+            ],
+            "id": "37373cd7-e5f8-4f13-919b-b47c32cc881e",
+            "source": {
+              "cell": "5b77c57f-32ec-4c22-ac2d-aabcfbca1411",
+              "port": "c2772db5-fc82-4913-98fe-2c3f85f0a756"
+            },
+            "target": {
+              "cell": "de925454-507d-4f4a-93cf-9cbf4f86da06",
               "port": "23fe1bd2-63ba-409e-a8d3-7f29a73fc791"
             }
           },
@@ -1431,8 +1874,66 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "33af507f-3ad8-442d-aa25-a3bdfa8b434f",
+                  "title": "Tampering – User command parameters manipulated",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker may modify user command parameters sent from the mobile application,\nleading to unauthorized device control or altered system behavior.\n",
+                  "mitigation": "Use strong input validation, request integrity checks, authentication tokens,\nand secure communication channels (HTTPS).\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                },
+                {
+                  "id": "3b6698b6-7d6b-468e-b768-8cea772fbca8",
+                  "title": "Information Disclosure – Sensitive data exposed in user commands",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Sensitive user information such as credentials or control data may be exposed\nduring transmission of user commands from the mobile application.\n\n",
+                  "mitigation": "Encrypt data in transit using HTTPS, avoid transmitting sensitive data in plain\ntext, and apply proper access control and data minimization.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                },
+                {
+                  "id": "ed7e50ab-4d76-4af3-9c58-59f543a0c113",
+                  "title": "Information Disclosure – Sensitive data exposed in user commands",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Sensitive user information such as credentials or control data may be exposed\nduring transmission of user commands from the mobile or web application.\n",
+                  "mitigation": "Use HTTPS for all communications, encrypt sensitive data in transit, apply\nproper authentication, and avoid exposing sensitive data in requests.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                },
+                {
+                  "id": "91845f72-8405-47ed-bddb-8cc75fe1d476",
+                  "title": "Denial of Service – Excessive user command requests",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "An attacker or misbehaving client may send excessive user commands that overwhelm\nthe application, leading to service unavailability for legitimate users.\n",
+                  "mitigation": "Implement rate limiting, request throttling, monitoring, and automatic blocking\nof abusive clients to prevent service exhaustion.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 3,
+                "informationDisclosure": 4,
+                "denialOfService": 2
+              }
             },
             "labels": [
               "User commands (login, control)\n"
@@ -1445,62 +1946,27 @@
             "target": {
               "cell": "58387c5d-8545-41d8-a1fe-05a4e43a0588",
               "port": "23fe1bd2-63ba-409e-a8d3-7f29a73fc791"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
+            },
+            "vertices": [
+              {
+                "x": 900,
+                "y": 300
+              },
+              {
+                "x": 920,
+                "y": 300
+              },
+              {
+                "x": 940,
+                "y": 320
               }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Web management requests\n",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "0d227957-3c52-4033-9d10-d484012fc944",
-                "b87d17fc-4887-49b2-97a3-bc235df8e811"
-              ]
-            },
-            "labels": [
-              "Web management requests\n"
-            ],
-            "id": "37373cd7-e5f8-4f13-919b-b47c32cc881e",
-            "source": {
-              "cell": "5b77c57f-32ec-4c22-ac2d-aabcfbca1411",
-              "port": "c2772db5-fc82-4913-98fe-2c3f85f0a756"
-            },
-            "target": {
-              "cell": "de925454-507d-4f4a-93cf-9cbf4f86da06",
-              "port": "23fe1bd2-63ba-409e-a8d3-7f29a73fc791"
-            }
+            ]
           }
         ]
       }
     ],
     "diagramTop": 2,
     "reviewer": "Computer Security Instructor",
-    "threatTop": 0
+    "threatTop": 30
   }
 }
